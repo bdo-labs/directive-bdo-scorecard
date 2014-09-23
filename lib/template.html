@@ -1,0 +1,25 @@
+<!-- bdo-scorecard.html -->
+<header ng-transclude></header>
+
+<div ng-class="{'half': type == 'overview'}">
+  <div ng-hide="type == 'tasks'" class="measures">
+    <bdo-measure measure="measure" ng-repeat="measure in scorecard.measures"></bdo-measure>
+  </div>
+  <div ng-if="type == 'overview'">
+    <a class="btn" ui-sref="measures">KPI</a>
+    <a class="btn" ui-sref="tasks">Tiltak</a>
+  </div>
+</div>
+
+<div ng-class="{'half': type == 'overview', 'align-center': true}">
+  <div ng-hide="type == 'measures'">
+    <p class="task-statuses">
+      Tiltak:
+      <span class="status-{{chart.status}}" slot="{{chart.value}}" ng-repeat="chart in scorecard.chart.data"></span>
+    </p>
+    <chart value="scorecard.chart" type="Doughnut" width="160" height="160"></chart>
+    <p ng-hide="expand" class="description"><i>{{scorecard.description}}</i></p>
+    <bdo-tasks ng-if="scorecard.tasks" ng-show="type == 'tasks'" tasks="scorecard.tasks"></bdo-tasks>
+  </div>
+</div>
+<!-- End bdo-scorecard.html -->

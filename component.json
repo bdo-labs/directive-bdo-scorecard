@@ -1,0 +1,9 @@
+{
+  "name": "bdo-scorecard",
+  "repo": "bdo-labs/directive-bdo-scorecard",
+  "version": "0.0.1",
+  "description": "Scorecard directive",
+  "main": "lib/index.js",
+  "scripts": ["lib/index.js"],
+  "templates": ["lib/template.html"]
+}
